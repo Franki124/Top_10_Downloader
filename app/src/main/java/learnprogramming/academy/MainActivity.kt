@@ -11,7 +11,6 @@ class FeedEntry {
     var link: String = ""
     var pubDate: String = ""
     var category: String = ""
-    var guid: String = ""
 
     override fun toString(): String {
         return """
@@ -19,7 +18,6 @@ class FeedEntry {
             link = $link
             pubDate = $pubDate
             category = $category
-            guid = $guid
         """.trimIndent()
     }
 }

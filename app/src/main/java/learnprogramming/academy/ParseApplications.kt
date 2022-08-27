@@ -23,7 +23,7 @@ class ParseApplications {
             var eventType = xpp.eventType
             var currentRecord = FeedEntry()
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                val tagName = xpp.name.lowercase()          //TODO: we should use the safe-call operator ?
+                val tagName = xpp.name?.lowercase()
                 when (eventType) {
                     XmlPullParser.START_TAG -> {
                         Log.d(TAG, "parse: Starting tag for " + tagName)
@@ -45,9 +45,8 @@ class ParseApplications {
 
                                 "title" -> currentRecord.title = textValue
                                 "link" -> currentRecord.link = textValue
-                                "pubDate" -> currentRecord.pubDate = textValue
+                                "pubdate" -> currentRecord.pubDate = textValue
                                 "category" -> currentRecord.category = textValue
-                                "guid" -> currentRecord.guid = textValue
                             }
                         }
                     }
