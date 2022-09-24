@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Repos/Top10Downloader/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Repos/Top10Downloader/app/src/main/res/layout/list_item.xml" value="0.4" />
+        <entry key="..\:/Repos/Top10Downloader/app/src/main/res/layout/list_record.xml" value="0.4" />
+        <entry key="..\:/Repos/Top10Downloader/app/src/main/res/menu/feeds_menu.xml" value="0.4" />
       </map>
     </option>
   </component>

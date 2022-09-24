@@ -1,16 +1,13 @@
 package learnprogramming.academy
 
-import android.util.Log
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.lang.Exception
 
 class ParseApplications {
-    private val TAG = "ParseApplications"
     val applications = ArrayList<FeedEntry>()
 
     fun parse(xmlData: String): Boolean {
-        Log.d(TAG, "parse called with $xmlData")
         var status = true
         var inItem = false
         var textValue = ""
@@ -26,7 +23,6 @@ class ParseApplications {
                 val tagName = xpp.name?.lowercase()
                 when (eventType) {
                     XmlPullParser.START_TAG -> {
-                        Log.d(TAG, "parse: Starting tag for " + tagName)
                         if (tagName == "item") {
                             inItem = true
                         }
@@ -35,7 +31,6 @@ class ParseApplications {
                     XmlPullParser.TEXT -> textValue = xpp.text
 
                     XmlPullParser.END_TAG -> {
-                        Log.d(TAG, "parse: Ending tag for " + tagName)
                         if (inItem) {
                             when (tagName) {
                                 "item" -> {
@@ -47,20 +42,13 @@ class ParseApplications {
                                 "link" -> currentRecord.link = textValue
                                 "pubdate" -> currentRecord.pubDate = textValue
                                 "category" -> currentRecord.category = textValue
+                                "description" -> currentRecord.category = textValue
                             }
                         }
                     }
                 }
-
-                // Nothing else to do.
                 eventType = xpp.next()
             }
-
-            for (app in applications) {
-                Log.d(TAG,"*************")
-                Log.d(TAG, app.toString())
-            }
-
         } catch (e: Exception) {
             e.printStackTrace()
             status = false
