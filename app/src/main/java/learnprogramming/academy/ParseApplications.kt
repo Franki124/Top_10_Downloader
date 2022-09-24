@@ -42,7 +42,7 @@ class ParseApplications {
                                 "link" -> currentRecord.link = textValue
                                 "pubdate" -> currentRecord.pubDate = textValue
                                 "category" -> currentRecord.category = textValue
-                                "description" -> currentRecord.category = textValue
+                                "description" -> currentRecord.description = textValue
                             }
                         }
                     }

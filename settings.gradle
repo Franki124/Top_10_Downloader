@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Top 10 Downloader"
+rootProject.name = "GOL Newsletter"
 include ':app'

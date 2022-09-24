@@ -1,9 +1,12 @@
 package learnprogramming.academy
 
 import android.content.Context
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 
@@ -38,16 +41,15 @@ class FeedAdapter(
             viewHolder = view.tag as ViewHolder
         }
 
-
-        val tvName: TextView = view.findViewById(R.id.tvName)
-        val tvArtist: TextView = view.findViewById(R.id.tvArtist)
-        val tvSummary: TextView = view.findViewById(R.id.tvSummary)
-
         val currentApp = applications[position]
 
         viewHolder.tvName.text = currentApp.title
         viewHolder.tvArtist.text = currentApp.category
-        viewHolder.tvSummary.text = currentApp.title
+        viewHolder.tvSummary.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(currentApp.description, Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            Html.fromHtml(currentApp.description.toString())
+        }
 
         return view
     }
